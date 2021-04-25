@@ -51,10 +51,10 @@ http.createServer(function (req, res)
 							for (i=0; i < items.length; i++)
 								res.write("The company name is: " + items[i].company + ".<br>" + "The ticker code is:" + items[i].ticker + ".<br><br>");
 						  }
-						  // db.close();
+						  db.close();
 					});
 			});
-			// res.end();
+			res.end();
 		});
 	  }
 }).listen(port);
