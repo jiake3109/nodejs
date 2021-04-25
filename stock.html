@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <style type="text/css">
+  	div {display:none;}
+  </style>
+
+</head>
+<body>
+  <h2>Stock Ticker App</h2>
+  <p>You can choose to enter either a stock ticker or company name.</p>
+  <form name = "stock_ticker" action ='http://localhost:8080/process' method ='POST'>
+      <p>
+        <input type="radio"  name="c_or_t" value = "company" checked="checked"/>Company
+        <input type="radio"  name='c_or_t' value = 'ticker'/>Ticker
+      </p>
+      <div> Please enter a company name: <input type='text' name='company'/></div>
+      <div> Please enter a stock ticker: <input type='text' name='ticker'/></div>
+      <input type = "submit" value = "Submit"/>
+</form>
+
+<script>
+  var radio = document.getElementsByName("c_or_t");
+  window.onload = function(){
+      if (radio[0].checked){
+        document.getElementsByTagName("div")[0].style.display = "block";
+        document.getElementsByTagName("div")[1].style.display = "none";
+      }
+  }
+  radio[0].onchange = function(){
+    document.getElementsByTagName("div")[0].style.display = "block";
+    document.getElementsByTagName("div")[1].style.display = "none";
+  }
+  radio[1].onchange = function(){
+    document.getElementsByTagName("div")[0].style.display = "none";
+    document.getElementsByTagName("div")[1].style.display = "block";
+  }
+
+</script>
+  </body>
+</html>
